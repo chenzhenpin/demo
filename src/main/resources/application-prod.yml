@@ -1,0 +1,67 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 333333
+    url: jdbc:mysql://127.0.0.1/jpa?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+#不支持redis2.X版本
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle : 0
+    timeout: 0
+#如果有redis,spring boot默认使用 redis 当session 缓存
+#  session:
+#    store-type: none
+  thymeleaf:
+    #mode: HTML5
+    mode: LEGACYHTML5  #非严格模式
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+
+
+  mail:
+         host: smtp.qq.com
+         username:  1595347682@qq.com
+         password:  mbtzngnnzkzpjjhg
+         properties:
+            mail:
+              smtp:
+                auth: true  #这样才能通过验证
+                starttls:
+                    enable: true
+                    required: true
+  data:
+    mongodb:
+      uri: mongodb://mymongo:745656qada@localhost:27017/myMongo
+    elasticsearch:
+      cluster-name: elasticsearch #节点名称默认
+      cluster-nodes: localhost:9300 #多结点用逗号隔开
+      repositories:
+        enabled: true
+
+
+ #属性值
+elasticsearch.ip: 127.0.0.1
+elasticsearch.port: 9300
+elasticsearch.pool: 5
+
+
+
+
+
+

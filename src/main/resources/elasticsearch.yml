@@ -1,0 +1,4 @@
+network.host: 0.0.0.0
+transport.tcp.port: 9300
+transport.tcp.compress: true
+http.port: 9200

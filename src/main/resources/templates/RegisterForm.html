@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>register</title>
+</head>
+<body>
+
+<!--/*@thymesVar id="registerForm" type="com.example.demo.form.RegisterForm"*/-->
+<form   method="post" th:action="@{/register}" th:object="${registerForm}">
+	<table>
+		<tr>
+			<td>姓名:</td>
+			<td><input type="text" th:field="*{name}"/></td>
+			<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}" Style="color:red"></td>
+		</tr>
+		<tr>
+			<td>用户名:</td>
+			<td><input type="text" th:field="*{username}"/></td>
+			<td th:if="${#fields.hasErrors('username')}" th:errors="*{username}" Style="color:red"></td>
+		</tr>
+		<tr>
+			<td>密码:</td>
+			<td><input type="text" th:field="*{password}"/></td>
+			<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}" Style="color:red"></td>
+		</tr>
+		<tr>
+			<td><button type="submit">注册</button></td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>

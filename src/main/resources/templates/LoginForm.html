@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>login</title>
+</head>
+<body>
+
+<!--/*@thymesVar id="loginForm" type="com.example.demo.form.LoginForm"*/-->
+<form   method="post" th:action="@{/login}" th:object="${loginForm}">
+	<table>
+
+		<tr>
+			<td>用户名:</td>
+			<td><input type="text" th:field="*{username}"/></td>
+			<td th:if="${#fields.hasErrors('username')}" th:errors="*{username}" Style="color:red"></td>
+		</tr>
+		<tr>
+			<td>密码:</td>
+			<td><input type="text" th:field="*{password}"/></td>
+			<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}" Style="color:red"></td>
+		</tr>
+		<tr>
+			<td>验证码：</td>
+			<td><input name="randomcode"/></td>
+			<td><img id="randomcode_img" th:src="@{/validateCode}" alt="" width="56" height="20" align='absMiddle'  />
+				<a href="javascript:" onclick="refresh()">刷新</a></td>
+		</tr>
+		<tr>
+			<td>记住我:</td>
+			<td><input type="checkbox" th:field="*{rememberMe}"/></td>
+		</tr>
+
+		<tr>
+			<td><button type="submit">登陆</button></td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>
+<script>
+    function refresh(){
+        console.log("test");
+        var randomcode_img=document.getElementById("randomcode_img");
+        console.log("/validateCode?id="+Math.random());
+        randomcode_img.src="/validateCode?id="+Math.random();
+
+    }
+</script>

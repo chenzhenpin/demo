@@ -1,0 +1,110 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 5656qada
+    url: jdbc:mysql://127.0.0.1/jpa?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+#不支持redis2.X版本
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+#    password: 5656qada
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle : 0
+    timeout: 0
+#如果有redis,spring boot默认使用 redis 当session 缓存
+#  session:
+#    store-type: none
+  thymeleaf:
+    #mode: HTML5
+    mode: LEGACYHTML5  #非严格模式
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+
+
+  mail:
+    host: smtp.qq.com
+    username:  1595347682@qq.com
+    password:  mbtzngnnzkzpjjhg
+    properties:
+      mail:
+        smtp:
+          auth: true  #这样才能通过验证
+          starttls:
+              enable: true
+              required: true
+  data:
+    mongodb:
+      uri: mongodb://MYmongo:745656qada@localhost:27017/MYmongo
+    elasticsearch:
+      cluster-name: elasticsearch #节点名称默认
+      cluster-nodes: 127.0.0.1:9300 #多结点用逗号隔开
+      repositories:
+        enabled: true
+
+
+#
+#
+#mybatis:
+#  mapper-locations: classpath*:sqlmapper/*Mapper.xml
+#  basepackage: com.example.demo.dataobject.mybaitsTable
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params=count: countSql
+
+
+
+
+
+#证书配置
+#server:
+#  port: 8443
+#  ssl:
+#    key-store: .keystore
+#    key-store-password: 333333
+#    key-store-type: JKS
+#    key-alias: tomcat
+
+
+
+
+
+# #属性值
+#elasticsearch.ip: 127.0.0.1
+#elasticsearch.port: 9300
+#elasticsearch.pool: 5
+
+#静态文件的默认路径
+#spring.resources.static-locations=classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+#设置静态文件的路由访问前缀
+#spring.mvc.static-path-pattern= /**
+
+
+##启动时要执行的job，默认执行全部job
+#spring.batch.job.name=job1,job2
+##是否自动执行定义的job，默认是
+#spring.batch.job.enabled=true
+##是否初始化Spring Batch的数据库，默认为是
+#spring.batch.initializer.enabled=true
+#spring.batch.schema=
+##设置Spring Batch的数据库表的前缀
+#spring.batch.table-prefix=
+
+
+
+
